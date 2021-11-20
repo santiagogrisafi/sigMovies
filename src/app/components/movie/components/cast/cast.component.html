@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col text-center">
+        <div id="carouselControls2" data-interval="false" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item" *ngFor="let casting of cast; let i = index" [ngClass]="{'active': i == 0 }">
+                    <a [href]="verActor(casting.name)"><img [src]="casting.profile_path | noImage" class="cast img-thumbnail" width="50px"></a>
+                    <h6 class="mt-3"><a class="mt-3" [href]="verActor(casting.name)" style="color:aliceblue;">{{casting.name}}</a></h6>
+                    <a [href]="verActor(casting.name)"><small class="mb-2 mt-2" style="color:aliceblue;">{{casting.character}}</small></a>
+                </div>
+                <a class="carousel-control-prev" href="#carouselControls2" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselControls2" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

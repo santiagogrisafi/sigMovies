@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" [routerLink]="['/home']"><img src="./../../../assets/icons/png-32/camera-32x32-461609.png"> SiG Movies</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['/home']"><img src="./../../../assets/icons/png-32/home-32x32-461594.png"> Home </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['/movies']"><img src="./../../../assets/icons/png-32/tv-32x32-461607.png"> Peliculas</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['/series']"><img src="./../../../assets/icons/png-32/settings-32x32-461608.png"> Series</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['/actores']"><img src="./../../../assets/icons/png-32/ibooks-32x32-461596.png"> Actores</a>
+            </li>
+        </ul>
+    </div>
+</nav>

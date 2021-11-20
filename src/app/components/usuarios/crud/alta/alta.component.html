@@ -1,0 +1,32 @@
+<h4 class="text-center mt-4">Dar de Alta Usuario</h4>
+<div class="container main-container">
+    <form autocomplete="off" [formGroup]="formUsuarios" (submit)="submitUsers()" method="post">
+        <div class="row mt-3">
+            <div class="col text-center">
+                <label for="nombreUsuario">Nombre de usuario:</label>
+                <input name="nombreUsuario" id="nombreUsuario" type="text" placeholder="Ingrese el nombre de usuario" class="form-control mt-1 mb-2" formControlName="nombreUsuario">
+                <h6 class="alert alert-danger" *ngIf="controlErrores('nombreUsuario')"> Error en el campo username, no deje el espacio ya sea vacio o con una cantidad de caracteres menor a 3</h6>
+            </div>
+            <div class="col text-center">
+                <label for="emailUsuario">Email de usuario:</label>
+                <input name="emailUsuario" id="emailUsuario" type="email" placeholder="Ingrese el email de usuario" class="form-control mt-1 mb-2" formControlName="emailUsuario">
+                <h6 class="alert alert-danger" *ngIf="controlErrores('emailUsuario')"> Error en el campo email, no deje el espacio ya sea vacio o una cantidad de caracteres menor a 3 o el campo sin la @</h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <label for="passwordUsuario">Password de usuario:</label>
+                <input name="passwordUsuario" id="passwordUsuario" type="password" placeholder="Ingrese el password de usuario" class="form-control mt-1 mb-2" formControlName="passwordUsuario">
+                <h6 class="alert alert-danger" *ngIf="controlErrores('passwordUsuario')"> Error en el campo password, no deje el espacio ya sea vacio o una cantidad de caracteres menor a 6 </h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <button type="submit" class="btn btn-success  mt-3" [disabled]="this.formUsuarios.invalid">Dar de Alta a Usuario</button>
+            </div>
+            <div class="col text-center">
+                <button type="button" class="btn btn-danger mt-3" [routerLink]="['/usuarios']"> Volver al Control de Usuarios</button>
+            </div>
+        </div>
+    </form>
+</div>

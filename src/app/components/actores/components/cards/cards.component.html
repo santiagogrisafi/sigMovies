@@ -1,0 +1,36 @@
+<h4 class="text-center mt-5 alert alert-info" *ngIf="termino.trim().length>=1 && resultados.length>=1">Resultados encontrados para {{termino}}</h4>
+<div class="container main-container text-dark" *ngIf="resultados.length===0 && termino.trim().length>=1; else resultadosCard">
+    <div class="text-center mt-5">
+        <h4 class="alert alert-danger">No se han encontrado resultados a {{termino}}</h4>
+    </div>
+</div>
+<div class="container main-container text-dark" *ngIf="termino.trim().length<=0">
+    <div class="row">
+        <div class="col mb-5 mt-5" *ngFor="let actor of actores; let i = index">
+            <div class="card rounded border border-light">
+                <a [href]="hrefWikipedia+actor.name"><img class="card-img-top border border-light rounded rounded-circle" [src]="actor.profile_path | noImage" [alt]="actor.name"></a>
+                <div class="card-header">
+                    <a [href]="hrefWikipedia+actor.name">
+                        <h6 style="color: dimgrey" class="text-center"> {{actor.name}} ({{actor.popularity}})</h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #resultadosCard>
+    <div class="container main-container text-dark" *ngIf="termino.trim().length>=1">
+        <div class="row">
+            <div class="col mb-5 mt-5" *ngFor="let actor of resultados; let i = index">
+                <div class="card rounded border border-light">
+                    <a [href]="hrefWikipedia+actor.name"><img class="card-img-top border border-light rounded rounded-circle" [src]="actor.profile_path | noImage" [alt]="actor.name"></a>
+                    <div class="card-header">
+                        <a [href]="hrefWikipedia+actor.name">
+                            <h6 style="color: dimgrey" class="text-center"> {{actor.name}} ({{actor.popularity}})</h6>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

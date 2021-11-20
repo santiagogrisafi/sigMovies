@@ -1,0 +1,47 @@
+<h5 class="text-center mt-3 mb-3"> Gestion de Usuarios </h5>
+<div class="row mt-3">
+    <div class="col">
+        <a [routerLink]="['/usuarios/alta']" class="btn btn-success btn-block">Dar de Alta a Usuario</a>
+    </div>
+    <div class="col">
+        <a class="btn btn-primary btn-block" [routerLink]="['/']">Salir del sistema de gestion de Usuarios</a>
+    </div>
+</div>
+
+<div class="container main-container">
+</div>
+<table class="table table-light text-center">
+    <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Operaciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users; let i = index">
+            <td>
+                {{i}}
+            </td>
+            <td>
+                {{user.nombreUsuario}}
+            </td>
+            <td>
+                {{user.emailUsuario}}
+            </td>
+            <td>
+                <a [routerLink]="['/usuarios',user.idUsuario]" class="btn btn-warning btn-block text-white">Actualizar</a>
+                <a [routerLink]="['/usuarios',user.idUsuario]" class="btn btn-danger btn-block">Dar de Baja</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,12 @@
+.card {
+    background-color: whitesmoke;
+    color: black;
+    text-align: center;
+    width: auto;
+    height: 100%;
+    border: beige;
+}
+
+hr.white {
+    background-color: aliceblue;
+}

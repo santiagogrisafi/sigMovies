@@ -1,0 +1,12 @@
+<div class="row mt-4">
+    <div class="col mt-4" *ngFor="let serie of cards; let i = index">
+        <div class="card cursor mb-3" style="width: 15rem;">
+            <img class="card-img-top rounded pointer border border-light" [src]="serie.poster_path | noImage" [alt]="serie.original_name" (click)=verSerie(serie.id)>
+        </div>
+    </div>
+    <div *ngFor="let count of collection | paginate: { itemsPerPage: 20, currentPage: p, totalItems: 466}; let i = index">
+    </div>
+    <div class="container text-center" *ngIf="habilitar2">
+        <pagination-controls style="text-align: center;" (pageChange)="p = $event" (click)="paginar(p)"></pagination-controls>
+    </div>
+</div>

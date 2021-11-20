@@ -1,0 +1,30 @@
+<div class="row mt-3">
+    <div class="col text-center">
+        <h5 class="text-center"><button class="btn btn-danger mr-3" [routerLink]="['/movies']"><</button> {{movie.title}}</h5>
+        <img class="mb-3 img-thumbnail mt-2" [src]="movie.poster_path | noImage" width="250px" height="auto">
+    </div>
+    <div class="col mt-5 text-center">
+        <h2 *ngFor="let genre of movie.genres; let i = index" class="badge badge-primary mr-3">{{genre.name | uppercase}} </h2>
+        <h6>Average Rating: <small>{{movie.vote_average}}</small></h6>
+        <h6>Date: <small>{{movie.release_date}}</small></h6>
+        <h6>Runtime Episode: <small>{{movie.runtime}} minutes</small></h6>
+        <h6>Production Companies:
+            <small *ngFor="let company of movie.production_companies; let i = index">{{company.name}}, </small>
+        </h6>
+        <h6>Filming Location:
+            <small *ngFor="let country of movie.production_countries"> {{country.name}} </small>
+        </h6>
+        <h6>Popularity: <small>{{movie.popularity}}</small>
+        </h6>
+        <h6>Status: <small [ngStyle]="{'color': movie.status=='Ended' ? 'red': 'green'}">{{movie.status}}</small></h6>
+        <h6 class="text-center col">Cast:</h6>
+        <app-cast [cast]="cast" class="mt-1"></app-cast>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col text-center">
+        <h5 class="text-center col" *ngIf="movie.overview.length>0">{{movie.tagline}}</h5>
+        <p>{{movie.overview}}</p>
+    </div>
+
+</div>

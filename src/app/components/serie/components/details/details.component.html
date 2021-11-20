@@ -1,0 +1,40 @@
+<div class="row mt-3">
+    <div class="col text-center">
+        <h5 class="text-center"><button class="btn btn-danger mr-3" [routerLink]="['/series']"><</button> {{serie.name}}</h5>
+        <img class="mb-3 img-thumbnail mt-2" [src]="serie.poster_path | noImage" width="250px" height="auto">
+    </div>
+    <div class="col mt-5">
+        <h2 *ngFor="let genre of serie.genres; let i = index" class="badge badge-primary mr-3">{{genre.name | uppercase}} </h2>
+        <h6>Average Rating: <small>{{serie.vote_average}}</small></h6>
+        <h6>First Date: <small>{{serie.first_air_date}}</small></h6>
+        <h6>End Date: <small>{{serie.first_air_date}}</small></h6>
+        <h6>Runtime Episode: <small>{{serie.episode_run_time}} minutes</small></h6>
+        <h6>Number of Episodes: <small>{{serie.number_of_episodes}}</small></h6>
+        <h6>Production Companies:
+            <small *ngFor="let company of serie.production_companies; let i = index">{{company.name}}, </small>
+        </h6>
+        <h6>Filming Location:
+            <small *ngFor="let country of serie.origin_country"> {{country}} </small>
+        </h6>
+        <h6>Popularity: <small>{{serie.popularity}}</small>
+        </h6>
+        <h6>Status: <small [ngStyle]="{'color': serie.status=='Ended' ? 'red': 'green'}">{{serie.status}}</small></h6>
+    </div>
+</div>
+<div class="row">
+    <div class="col text-center">
+        <h5 class="text-center col" *ngIf="serie.overview.length>0">Sipnosis</h5>
+        <p>{{serie.overview}}</p>
+    </div>
+
+</div>
+<div class="row mb-3">
+    <div class="col">
+        <h4 class="text-center">Cast</h4>
+        <app-cast [cast]="cast"></app-cast>
+    </div>
+    <div class="col">
+        <h4 class="text-center">Seasons</h4>
+        <app-seasons [seasons]="seasons"></app-seasons>
+    </div>
+</div>
